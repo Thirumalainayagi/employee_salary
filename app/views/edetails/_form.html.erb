@@ -1,0 +1,45 @@
+<%= form_for(Edetail.new) do |f| %>
+  <% if @edetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@edetail.errors.count, "error") %> prohibited this edetail from being saved:</h2>
+
+      <ul>
+      <% @edetail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ename %><br>
+    <%= f.text_field :ename %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.radio_button :gender, 'male', :checked => true %> 
+  <%= label :gender_male, 'Male' %>
+  <%= f.radio_button :gender, 'female' %>
+  <%= label :gender_female, 'Female' %>
+  </div>
+  <div class="field">
+    <%= f.label :basic_pay %><br>
+    <%= f.text_field :basic_pay %>
+  </div>
+  <div class="field">
+    <%= f.label :pf %><br>
+    <%= f.text_field :pf_deduction %>
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= @edetails%>

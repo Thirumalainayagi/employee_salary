@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ename:</strong>
+  <%= @edetail.ename %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @edetail.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @edetail.gender %>
+</p>
+
+<p>
+  <strong>Basic_pay:</strong>
+  <%= @edetail.basic_pay %>
+</p>
+
+<p>
+  <strong>Pf deduction:</strong>
+  <%= @edetail.pf_deduction %>
+</p>
+<p>
+<strong>Hra:</strong>
+<%= @edetail.hra %>
+
+</p>
+
+<p>
+<strong>Net salary (Basic + HRA - PF)</strong>
+<%= @edetail.net_pay %>
+
+</p>
+
+
+<%= link_to 'Edit', edit_edetail_path(@edetail) %> |
+<%= link_to 'Back', edetails_path %>

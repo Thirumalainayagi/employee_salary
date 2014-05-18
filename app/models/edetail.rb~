@@ -1,0 +1,18 @@
+class Edetail < ActiveRecord::Base
+ 
+  
+def salary_calculation
+
+hra = (basic_pay < 5000 ? 2500 : (basic_pay*10)/100)
+    update(:hra => hra, :net_pay => basic_pay + hra - pf_deduction)
+end
+end
+
+
+
+
+
+
+
+
+

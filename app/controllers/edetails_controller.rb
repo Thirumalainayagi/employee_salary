@@ -1,0 +1,83 @@
+class EdetailsController < ApplicationController
+  #before_action :set_edetail, only: [:show, :edit, :update, :destroy]
+
+
+  #def set_edetail
+
+  #  @edetail = Edetail.find(params[:id])
+  #end
+  # GET /edetails
+  # GET /edetails.json
+  def index
+    @edetails = Edetail.all
+  end
+
+  # GET /edetails/1
+  # GET /edetails/1.json
+  def show
+    @edetail = Edetail.find_by(id: params[:id])
+  end
+
+  #def salary_calculate
+
+  #end
+  # GET /edetails/new
+  def new
+    @edetail = Edetail.new
+  end
+
+  # GET /edetails/1/edit
+  def edit
+    @edetail = Edetail.find_by(params[:id])
+  end
+
+  # POST /edetails
+  # POST /edetails.json
+  def create
+    @edetail = Edetail.new(edetail_params)
+ 
+    
+    if @edetail.save
+      @edetail.salary_calculation
+      redirect_to @edetail
+    else
+      render 'new'
+    end
+  end
+
+  # PATCH/PUT /edetails/1
+  # PATCH/PUT /edetails/1.json
+  def update
+    @edetail = Edetail.find_by(params[:id])
+    if @edetail.update(edetail_params)
+      @edetail.salary_calculation
+      redirect_to @edetail
+    else
+      render "edit"
+    end
+ 
+  end
+
+  # DELETE /edetails/1
+  # DELETE /edetails/1.json
+  def destroy
+    @edetail = Edetail.find_by(params[:id])
+    @edetail.destroy
+    respond_to do |format|
+     format.html { redirect_to edetails_url }
+     format.json { head :no_content }
+    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  #def set_edetail
+  # @edetail = Edetail.find(params[:id])
+  #end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def edetail_params
+    params.require(:edetail).permit(:ename, :age, :gender, :basic_pay, :pf_deduction ,:net_pay,:hra)
+  end
+end
+

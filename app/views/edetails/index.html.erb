@@ -1,0 +1,37 @@
+<h1>Listing edetails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ename</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Basic_pay</th>
+      <th>Pf</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @edetails.each do |edetail| %>
+      <tr>
+        <td><%= edetail.ename %></td>
+        <td><%= edetail.age %></td>
+        <td><%= edetail.gender %></td>
+        <td><%= edetail.basic_pay %></td>
+        <td><%= edetail.pf_deduction %></td>
+	
+        <td><%= link_to 'Show', edetail_path(edetail) %></td>
+        <td><%= link_to 'Edit', edit_edetail_path(edetail) %></td>
+        <td><%= link_to 'Destroy', edetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Edetail', new_edetail_path %>

@@ -1,0 +1,10 @@
+class CreateCalculates < ActiveRecord::Migration
+  def change
+    create_table :calculates do |t|
+      t.integer :net_pay
+      t.integer :hra
+
+      t.timestamps
+    end
+  end
+end
