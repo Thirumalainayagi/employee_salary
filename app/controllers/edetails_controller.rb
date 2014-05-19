@@ -28,7 +28,7 @@ class EdetailsController < ApplicationController
 
   # GET /edetails/1/edit
   def edit
-    @edetail = Edetail.find_by(params[:id])
+    @edetail = Edetail.find_by(id: params[:id])
   end
 
   # POST /edetails
@@ -48,7 +48,7 @@ class EdetailsController < ApplicationController
   # PATCH/PUT /edetails/1
   # PATCH/PUT /edetails/1.json
   def update
-    @edetail = Edetail.find_by(params[:id])
+    @edetail = Edetail.find_by(id: params[:id])
     if @edetail.update(edetail_params)
       @edetail.salary_calculation
       redirect_to @edetail
@@ -61,7 +61,7 @@ class EdetailsController < ApplicationController
   # DELETE /edetails/1
   # DELETE /edetails/1.json
   def destroy
-    @edetail = Edetail.find_by(params[:id])
+    @edetail = Edetail.find_by(id: params[:id])
     @edetail.destroy
     respond_to do |format|
      format.html { redirect_to edetails_url }
