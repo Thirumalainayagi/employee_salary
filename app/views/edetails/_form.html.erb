@@ -1,4 +1,4 @@
-<%= form_for(Edetail.new) do |f| %>
+<%= form_for(@edetails) do |f| %>
   <% if @edetail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@edetail.errors.count, "error") %> prohibited this edetail from being saved:</h2>
